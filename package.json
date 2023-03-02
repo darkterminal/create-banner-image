@@ -4,7 +4,8 @@
   "description": "An easy way to make banners from articles that you make with only 1 step!",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build:action": "ncc build src/action.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
   },
   "homepage": "https://github.com/darkterminal/create-banner-image#readme",
   "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "@napi-rs/canvas": "^0.1.37",
     "cors": "^2.8.5",
     "cwebp": "^2.0.5",
@@ -32,6 +35,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.36.1",
     "nodemon": "^2.0.20"
   }
 }

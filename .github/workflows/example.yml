@@ -1,0 +1,11 @@
+on:
+    issues:
+        types: [opened]
+
+jobs:
+    issue_is_opened:
+        name: Fetch opened issue detail
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@main
+            - uses: darkterminal/create-banner-image@master # Uses an action in the root directory
