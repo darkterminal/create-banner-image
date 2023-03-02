@@ -1,0 +1,37 @@
+{
+  "name": "create-banner-image",
+  "version": "1.0.0",
+  "description": "An easy way to make banners from articles that you make with only 1 step!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkterminal/create-banner-image.git"
+  },
+  "keywords": [
+    "SEO Banner",
+    "Banner Generator",
+    "Node Image Generator",
+    "Free Banner Generator",
+    "Javascript"
+  ],
+  "author": "Imam Ali Mustofa <d.darkterminal@gmail.com> (https://github.com/darkterminal)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darkterminal/create-banner-image/issues"
+  },
+  "homepage": "https://github.com/darkterminal/create-banner-image#readme",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.37",
+    "cors": "^2.8.5",
+    "cwebp": "^2.0.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
