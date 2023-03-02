@@ -1,0 +1,21 @@
+name: "Banner Image Generator"
+description: "Action to generate image base on post"
+inputs:
+  canonical-name:
+    description: "the name we'll use to save our image (slugify first: Recomended!)"
+    required: true
+  gradient-colors:
+    description: "an array of two colors, i.e. [ '#ffffff', '#000000' ], used for our gradient"
+    required: true
+  article-name:
+    description: "the title of the article or site you want to appear in the image"
+    required: true
+  article-category:
+    description: "the category which that article sits in - or the subtext of the article"
+    required: true
+  emoji:
+    description: "the emoji you want to appear in the image."
+    required: true
+runs:
+    using: "node16"
+    main: "dist/index.js"

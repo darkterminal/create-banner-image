@@ -1,0 +1,3 @@
+tasks:
+  - before: npm install
+  - init: npm run build:action

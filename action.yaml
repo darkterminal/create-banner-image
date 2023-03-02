@@ -1,5 +1,0 @@
-name: "Banner Image Generator"
-description: "Action to generate image base on post"
-runs:
-    using: "node16"
-    main: "dist/index.js"
