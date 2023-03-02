@@ -2,7 +2,7 @@
 An easy way to make banners from articles that you make with only 1 step!
 
 ## Github Action Usage
-``yaml
+```yaml
 on: workflow_dispatch
 
 jobs:
