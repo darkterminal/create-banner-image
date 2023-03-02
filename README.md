@@ -1,5 +1,8 @@
-# Create Banner Image - Github Action & Rest API
-An easy way to make banners from articles that you make with only 1 step!
+<p align="center">
+    <img src="images/create-banner-image-from-grithub-action.png" alt="Create Banner Image - Github Action & Rest API" />
+    <h1 align="center">Create Banner Image - Github Action & Rest API</h1>
+    <p align="center">An easy way to make banners from articles that you make with only 1 step!</p>
+</p>
 
 ## Github Action Usage
 ```yaml
