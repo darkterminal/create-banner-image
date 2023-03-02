@@ -1,16 +1,27 @@
 # Create Banner Image - Github Action & Rest API
 An easy way to make banners from articles that you make with only 1 step!
 
-## Generator Usage
-```javascript
-const generator = async () => {
-    const generated = await generateMainImage('metaphor-website-is-live', [ '#fc00ff', '#00dbde' ], 'Metaphor Website Is Live!', 'open-source', '🎉')
-    console.log(generated)
-}
-generator()
+## Github Action Usage
+``yaml
+on: workflow_dispatch
+
+jobs:
+    create_banner_image:
+        name: "Create Banner Image"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@main
+            - uses: ./ # Uses an action in the root directory
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                canonical-name: 'create-banner-image-from-grithub-action'
+                gradient-colors: '#fc00ff,#00dbde'
+                article-name: 'Create Banner Image From Github Action'
+                article-category: 'open-source'
+                emoji: '🎉'
 ```
 
-## REST API Usage
+## REST API Usage (Deploy on your server)
 ```curl
 curl -X POST \
   'https://<base-url>/generator' \
