@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@main
-            - uses: ./ # Uses an action in the root directory
+            - uses: darkterminal/create-banner-image@master # Uses an action in the root directory
               with:
                 github-token: ${{ secrets.GITHUB_TOKEN }}
                 canonical-name: 'create-banner-image-from-grithub-action'
