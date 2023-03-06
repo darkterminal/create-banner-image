@@ -1,5 +1,5 @@
 const { createCanvas, GlobalFonts } = require('@napi-rs/canvas') // For canvas.
-const fs = require('fs')
+const fs = process.env.NODE_ENV === 'development' ? require('fs') : require('@cyclic.sh/s3fs')
 
 // Load in the fonts we need
 GlobalFonts.registerFromPath('./fonts/Inter-ExtraBold.ttf', 'InterBold');
@@ -16,7 +16,7 @@ function base64_encode(file) {
 }
 
 /**
- * 
+ *
  * @param {Object} ctx the context for the canvas
  * @param {String} text the text we wish to wrap
  * @param {Number} x the starting x position of the text
@@ -31,7 +31,7 @@ const wrapText = function(ctx, text, x, y, maxWidth, lineHeight) {
     // Then we'll make a few variables to store info about our line
     let line = '';
     let testLine = '';
-    // wordArray is what we'l' return, which will hold info on 
+    // wordArray is what we'l' return, which will hold info on
     // the line text, along with its x and y starting position
     let wordArray = [];
     // totalLineHeight will hold info on the line height
@@ -73,10 +73,10 @@ const wrapText = function(ctx, text, x, y, maxWidth, lineHeight) {
  * @param {String} articleName the title of the article or site you want to appear in the image
  * @param {String} articleCategory the category which that article sits in - or the subtext of the article
  * @param {String} emoji the emoji you want to appear in the image.
- * @returns 
+ * @returns
  */
 const generateMainImage = async function(canonicalName, gradientColors, articleName, articleCategory, emoji) {
-    
+
     articleCategory = articleCategory.toUpperCase();
     // gradientColors is an array [ c1, c2 ]
     if(typeof gradientColors === "undefined") {
@@ -111,7 +111,7 @@ const generateMainImage = async function(canonicalName, gradientColors, articleN
         ctx.fillText(item[0], item[1], item[2] - wrappedText[1] - 200); // 200 is height of an emoji
     })
 
-    // Add our category text to the canvas 
+    // Add our category text to the canvas
     ctx.font = '35px InterMedium';
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
     ctx.fillText(articleCategory, 85, 553 - wrappedText[1] - 100); // 853 - 200 for emoji, -100 for line height of 1
@@ -141,10 +141,10 @@ const generateMainImage = async function(canonicalName, gradientColors, articleN
  * @param {String} articleName the title of the article or site you want to appear in the image
  * @param {String} articleCategory the category which that article sits in - or the subtext of the article
  * @param {String} emoji the emoji you want to appear in the image.
- * @returns 
+ * @returns
  */
 const actionGenerateImage = async function(canonicalName, gradientColors, articleName, articleCategory, emoji) {
-    
+
     articleCategory = articleCategory.toUpperCase();
     // gradientColors is an array [ c1, c2 ]
     if(typeof gradientColors === "undefined") {
@@ -179,7 +179,7 @@ const actionGenerateImage = async function(canonicalName, gradientColors, articl
         ctx.fillText(item[0], item[1], item[2] - wrappedText[1] - 200); // 200 is height of an emoji
     })
 
-    // Add our category text to the canvas 
+    // Add our category text to the canvas
     ctx.font = '35px InterMedium';
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
     ctx.fillText(articleCategory, 85, 553 - wrappedText[1] - 100); // 853 - 200 for emoji, -100 for line height of 1
