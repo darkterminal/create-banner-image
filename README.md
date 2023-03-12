@@ -25,6 +25,17 @@ jobs:
 ```
 
 ## REST API Usage (Deploy on your server)
+### Legacy Generator
+- endpoint: `/generator`
+- method: `POST`
+- fields:
+  - `canonicalName` slug string
+  - `articleName` article name / title
+  - `gradientColors` array of strings
+  - `articleCategory` article category
+  - `emoji` string
+
+**Example**
 ```curl
 curl -X POST \
   'https://<base-url>/generator' \
@@ -38,3 +49,29 @@ curl -X POST \
   "emoji": "🎉"
 }'
 ```
+**Retult**:
+![Legacy Generator](images/create-banner-image-from-grithub-action.png)
+
+### Classic SEO Banner
+- endpoint: `/classic-seo-banner`
+- method: `GET`
+- query:
+  - `articleName` article name / title
+  - `author` The author name
+  - `language` Type of programming language
+
+**Retult**:
+![Legacy Generator](images/classic-seo-banner.png)
+
+### Modern SEO Banner
+- endpoint: `/seo-banner`
+- method: `GET`
+- query:
+  - `title` article name / title
+  - `author` The author name
+  - `logo` web logo URL
+  - `head` default "Metaphor Story"
+  - `writer` writer github username
+
+**Retult**:
+![Legacy Generator](images/seo-banner.png)
